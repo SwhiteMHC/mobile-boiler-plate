@@ -22,7 +22,6 @@ function CustomNavigationStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen
           name="Home"
           component={HomeScreen}

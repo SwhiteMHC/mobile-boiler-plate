@@ -30,16 +30,6 @@ function LoginScreen({navigation}): JSX.Element {
         className="text-black dark:text-white bg-white/100">
         <StyledView className="text-black dark:text-white bg-white/100">
           <Text>Login</Text>
-          <Button title="Home" onPress={() => navigation.navigate('Home')} />
-          <Button title="About" onPress={() => navigation.navigate('About')} />
-          <Button
-            title="Survey"
-            onPress={() => navigation.navigate('Survey')}
-          />
-          <Button
-            title="Testing"
-            onPress={() => navigation.navigate('Test')}
-          />
         </StyledView>
       </StyledScrollView>
     </SafeAreaView>
