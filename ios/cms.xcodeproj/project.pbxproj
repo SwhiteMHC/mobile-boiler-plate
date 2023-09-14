@@ -14,6 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-cms-cmsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-cms-cmsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C8C6624D2AB3A3B00061EDE3 /* RCTBACiOSModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C6624C2AB3A3B00061EDE3 /* RCTBACiOSModule.m */; };
+		C8C6624F2AB3A3CC0061EDE3 /* libBACtrackSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C6624E2AB3A3CC0061EDE3 /* libBACtrackSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,9 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-cms.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cms.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = cms/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-cms-cmsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cms-cmsTests.release.xcconfig"; path = "Target Support Files/Pods-cms-cmsTests/Pods-cms-cmsTests.release.xcconfig"; sourceTree = "<group>"; };
+		C8C6624C2AB3A3B00061EDE3 /* RCTBACiOSModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTBACiOSModule.m; sourceTree = "<group>"; };
+		C8C6624E2AB3A3CC0061EDE3 /* libBACtrackSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBACtrackSDK.a; path = cms/BACtrackSDK/libBACtrackSDK.a; sourceTree = "<group>"; };
+		C8C662502AB3A4EE0061EDE3 /* BACtrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BACtrack.h; path = ../../../Downloads/BACtrack_v2.3.1_iOS_SDK/BACtrack.h; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -59,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C6624F2AB3A3CC0061EDE3 /* libBACtrackSDK.a in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-cms.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +105,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8C6624E2AB3A3CC0061EDE3 /* libBACtrackSDK.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-cms.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-cms-cmsTests.a */,
@@ -116,6 +123,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C8C662502AB3A4EE0061EDE3 /* BACtrack.h */,
+				C8C6624C2AB3A3B00061EDE3 /* RCTBACiOSModule.m */,
 				13B07FAE1A68108700A75B9A /* cms */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* cmsTests */,
@@ -412,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C6624D2AB3A3B00061EDE3 /* RCTBACiOSModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -483,6 +493,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-cms.debug.xcconfig */;
 			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = (
+					"$(ARCHS_STANDARD)",
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -492,6 +507,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
+					"$(inherited)",
+					"$(PROJECT_DIR)/cms/BACtrackSDK",
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
@@ -511,6 +531,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-cms.release.xcconfig */;
 			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = (
+					"$(ARCHS_STANDARD)",
+					armv7,
+					armv7s,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -519,6 +544,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
+					"$(inherited)",
+					"$(PROJECT_DIR)/cms/BACtrackSDK",
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
